@@ -11,5 +11,11 @@
   ],
   "parserOptions": {
     "ecmaVersion": "latest"
+  },
+  "rules": {
+    "vue/no-v-text-v-html-on-component": [
+      "warn",
+      { "allow": ["router-link", "nuxt-link"] }
+    ]
   }
 }

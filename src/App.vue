@@ -1,3 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { computed } from 'vue'
 
-<template>test1</template>
+    const localAttrs = computed(() => {
+      return {
+        absolute: true,
+        fixed: false
+      }
+    })
+</script>
+
+<template>
+  <v-app>
+    <v-main>
+      <ContentBlock />
+    </v-main>
+
+    <v-footer app v-bind="localAttrs">
+      <Footer />
+    </v-footer>
+  </v-app>
+</template>
