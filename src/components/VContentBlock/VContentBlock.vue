@@ -102,5 +102,5 @@
           title: 'Recipe to try',
           subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
         },
-      ],
+      ]
 </script>
