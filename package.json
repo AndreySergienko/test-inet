@@ -43,5 +43,9 @@
     "*.{ts,vue}": [
       "eslint --fix"
     ]
+  },
+  "validate-branch-name": {
+    "pattern": "^(features|fix|hotfix|release)/.+$",
+    "errorMsg": "Пожалуйста, поправьте наименование ветки"
   }
 }
