@@ -1,6 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "npm run type",
-    "pre-push": "npm run type && npm run test:unit && npm run lint"
-  }
-}
