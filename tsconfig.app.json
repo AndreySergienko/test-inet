@@ -20,7 +20,8 @@
       "@component/*": ["./src/components/*"],
       "@controller/*": ["./src/controllers/*"],
       "@widget/*": ["./src/widget/*"],
-      "@userCardStore/*": ["./src/stores/userCard/*"]
+      "@userCardStore/*": ["./src/stores/userCard/*"],
+      "@composable/*": ["./src/composables/*"]
     }
   }
 }

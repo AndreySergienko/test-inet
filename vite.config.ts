@@ -21,6 +21,7 @@ export default defineConfig({
       '@component': createAliasPath('components'),
       '@widget': createAliasPath('widget'),
       '@userCardStore': createAliasPath('stores/userCard'),
+      '@composable': createAliasPath('composables'),
     },
   },
 })

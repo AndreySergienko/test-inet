@@ -51,3 +51,6 @@ export const data: IUserCard[] = [
     score: '10',
   },
 ]
+
+export const countriesData: string[] = ['russia', 'usa']
+export const scoresData: string[] = ['> 20', '< 10']

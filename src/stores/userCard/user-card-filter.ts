@@ -7,6 +7,7 @@ import type {
   TFilerValidators,
 } from './user-card.types'
 import { scoreTable, transformData } from './user-card.helper'
+import { countriesData, scoresData } from './user-card.data'
 
 /** Стор для работы с фильтрами карточек пользователей */
 export const useUserCardFilterStore = defineStore('userCardFilter', () => {
@@ -35,18 +36,19 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
 
   const updateScores = (score: string) => (activeFilter.score = score)
 
-  /** Получить данные для фильтров асинхронно */
+  /** Запрос для фильтра - счёт/рейтинг */
   const fetchScores = () => {
     try {
-      scores.value = transformData(['> 20', '< 10'])
+      scores.value = transformData(scoresData)
     } catch (e) {
       // Обработка ошибки/Вызов алёрта
     }
   }
 
+  /** Запрос для фильтра - страны */
   const fetchCountries = () => {
     try {
-      countries.value = transformData(['russia', 'usa'])
+      countries.value = transformData(countriesData)
     } catch (e) {
       // Обработка ошибки/Вызов алёрта
     }

@@ -9,7 +9,10 @@ import { data, FILTER_AWAIT_TIME } from './user-card.data'
 
 /** Стор для работы с карточками пользователей */
 export const useUserCardStore = defineStore('userCard', () => {
+  /** Не публичный массив  */
   let userCards: IUserCard[] = []
+
+  /** Публичный/мутируемый массив */
   const mutalableUserCards = ref<IUserCard[]>([])
   const isLoading = shallowRef<boolean>(false)
 
@@ -24,6 +27,7 @@ export const useUserCardStore = defineStore('userCard', () => {
     )
     return await new Promise((resolve) => {
       isLoading.value = true
+      /** Метод фильтрации элементов массива */
       mutalableUserCards.value = userCards.filter((el: IUserCard) => {
         for (let i = 0; i < keysHasValue.length; i++) {
           const keyValidator = keysHasValue[i] as keyof TFilerValidators
@@ -55,7 +59,6 @@ export const useUserCardStore = defineStore('userCard', () => {
   return {
     filteredUserCards,
     mutalableUserCards,
-    userCards,
     fetchCard,
     isLoading,
   }

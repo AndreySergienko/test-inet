@@ -10,6 +10,5 @@
 
 <script setup lang="ts">
   import type { IAppFooterSlots } from './AppFooter.types'
-
   defineSlots<IAppFooterSlots>()
 </script>

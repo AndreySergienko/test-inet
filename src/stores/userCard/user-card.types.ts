@@ -13,7 +13,7 @@ export interface IUser {
   subtitle: string
   countrie: string
   score: string
-  address: string
+  address?: string
 }
 
 export interface IUserCard

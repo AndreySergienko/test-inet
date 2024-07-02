@@ -12,22 +12,24 @@
 
     <v-list v-else-if="userCards.length" class="d-flex">
       <transition-group name="fade">
-        <template v-for="(item, index) in userCards" :key="item.title + index">
+        <template
+          v-for="(item, index) in userCards"
+          :key="item.title ? item.title : index"
+        >
           <v-list-subheader v-if="item.header" v-text="item.header" />
 
           <v-divider v-else-if="item.divider" :inset="item.inset" />
 
           <v-list-item v-else width="250">
-            <v-sheet v-if="activeAddressList[index]">
-              <v-list-item-title
-                v-if="item.address"
-                >{{ item.address }}</v-list-item-title
+            <v-sheet v-if="keys[index]">
+              <v-list-item-title v-if="item.address"
+                >Address: {{ item.address }}</v-list-item-title
               >
             </v-sheet>
 
-            <v-list-item @click="toggleAddressList(index)">
+            <v-list-item @click="toggle(index)">
               <v-img
-                v-if="item.address || !activeAddressList[index]"
+                v-if="item.address || !keys[index]"
                 :src="item.avatar"
               ></v-img>
               <v-img
@@ -43,22 +45,14 @@
       </transition-group>
     </v-list>
 
-    <h3 class="text-center" v-else>User is not found</h3>
+    <h3 class="mx-auto" v-else>User is not found</h3>
   </v-card>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import type { IUserCardWidgetProps } from './UserCardWidget.types'
+  import { useToggleKeys } from '@composable/useToggleKeys'
   defineProps<IUserCardWidgetProps>()
 
-  const activeAddressList = ref<Record<number, number>>({})
-
-  const toggleAddressList = (index: number) => {
-    if (activeAddressList.value[index]) {
-      delete activeAddressList.value[index]
-      return
-    }
-    activeAddressList.value[index] = index
-  }
+  const { keys, toggle } = useToggleKeys()
 </script>

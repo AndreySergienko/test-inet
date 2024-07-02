@@ -38,12 +38,13 @@
   const useCardStore = useUserCardStore()
   const useCardFilterStore = useUserCardFilterStore()
 
+  /** Связывает обновления данных активного фильтра и фильтрацию массива */
   watch(useCardFilterStore.activeFilter, async () => {
     await useCardStore.filteredUserCards(useCardFilterStore.activeFilter, useCardFilterStore.filterValidators)
   })
 
   /** Имитируем получение данных с бэка
-   * P.S возможно имеет смысл вынести глобально
+   * P.S ситуативно - имеет смысл вынести глобально
    */
   useCardFilterStore.fetchCountries()
   useCardFilterStore.fetchScores()
