@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/eslint-config-typescript"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "vue/no-v-text-v-html-on-component": [
+      "warn",
+      { "allow": ["router-link", "nuxt-link"] }
+    ]
+  }
+}

@@ -1,18 +1,44 @@
-# vue-project
+# Введение
 
-This template should help get you started developing with Vue 3 in Vite.
+Тестовое задание: (https://github.com/inetstudio/vue-js-interview)
 
-## Recommended IDE Setup
+На что стоит обратить внимание:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+1. Разработка тестового задания велась так, словно таска (ведение коммитов, mr'ов, наименование веток)
+2. Бизнес логика - старался минимизровать работу с вёрсткой и сосредоточиться исключительно на деталях бизнес логики/архитектуры.
 
-## Type Support for `.vue` Imports in TS
+## Концепция
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Сохранить уже существующий макет, минимизируя изменение вёрстки, в том числе оставить vuetify.
+- Пропатчить приложение до более свежих версий
+- Использовать зависимости, который применяются в стеке разработки команды
 
-## Customize configuration
+## Шаги реализации
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Предварительным этапов до разработки было планирование:
+Я выделил следующие этапы разработки:
+
+- Установка зависимостей, подготовка приложения к дальнешей работе, в частности это настройки Husky/Eslint/Ts/Vite
+- Перенос кодобой базы, установленной техническим заданием
+- Выполнение задач (6 пунктов) и декомпозиция
+- Небольшой рефакторинг по итогу декомпозиции
+- Написание тестов. Нуууу как тестов, наброски, как следовало бы сделать.
+
+## Особенности приложения
+
+Наличие pre-commit хука - с фиксом кодовой базовой eslint'ом
+pre-push хук - с полной проверкой кодовой базы линтерами, тс компилятором, unit тестами, а так-же правилом наименования ветки(проверка на содержание ключевыъ слов)
+
+Декомпозиция и разделения слоёв внутри приложения:
+Публичные UI компонеты - components
+Сложные сущности для работы со стор/бизес логикой - controllers
+Промежуточная сущность(вариант, "если хочется, то можно и так"), объединяет множества ui элементов - widget
+
+Подключение vuetify 3(аналогичная настройк с стартовым проектом)
+
+Strict ts, супер мега базовая настройка vite
+
+Норма минимум для тестового задания.
 
 ## Project Setup
 
@@ -29,7 +55,7 @@ npm run dev
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-npm run build
+npm run build-only
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
