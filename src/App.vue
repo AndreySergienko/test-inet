@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  import AppFooter
+  from './components/AppFooter/AppFooter.vue'
+  import VContentBlock from './components/VContentBlock/VContentBlock.vue'
   import { computed } from 'vue'
 
     const localAttrs = computed(() => {
@@ -12,11 +15,15 @@
 <template>
   <v-app>
     <v-main>
-      <ContentBlock />
+      <VContentBlock />
     </v-main>
 
     <v-footer app v-bind="localAttrs">
-      <Footer />
+      <AppFooter>
+        <template #card-text
+          >{{  new Date().getFullYear()  }} - Vuetify</template
+        >
+      </AppFooter>
     </v-footer>
   </v-app>
 </template>
