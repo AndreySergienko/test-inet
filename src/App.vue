@@ -2,14 +2,13 @@
   import AppFooter
   from './components/AppFooter/AppFooter.vue'
   import VContentBlock from './components/VContentBlock/VContentBlock.vue'
-  import { computed } from 'vue'
+  import type { TLocalAttrsFooter } from '@type/vuetify.types'
+  import { ref } from 'vue'
 
-    const localAttrs = computed(() => {
-      return {
+  const localAttrs = ref<TLocalAttrsFooter>({
         absolute: true,
         fixed: false
-      }
-    })
+  })
 </script>
 
 <template>
@@ -17,6 +16,8 @@
     <v-main>
       <VContentBlock />
     </v-main>
+
+    <CardController />
 
     <v-footer app v-bind="localAttrs">
       <AppFooter>
