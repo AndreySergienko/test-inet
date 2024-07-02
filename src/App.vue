@@ -29,7 +29,8 @@
             :items="countries"
             clearable
             label="Filter by country"
-            :model-value="filter.countries"
+            :model-value="filter.countrie"
+            item-title="value"
             @update:model-value="updateCountries"
           ></v-select>
 
@@ -37,7 +38,9 @@
             :items="scores"
             clearable
             label="Filter by score"
-            :model-value="filter.scores"
+            :model-value="filter.score"
+            item-title="value"
+            item-value="id"
             @update:model-value="updateScores"
           ></v-select>
         </template>

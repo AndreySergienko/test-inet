@@ -4,7 +4,9 @@ import type {
   TScores,
   TCountries,
   IUserCardActiveFilter,
+  TFilerValidators,
 } from './user-card.types'
+import { scoreTable, transformData } from './user-card.helper'
 
 /** Стор для работы с фильтрами карточек пользователей */
 export const useUserCardFilterStore = defineStore('userCardFilter', () => {
@@ -12,20 +14,31 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
   const scores = shallowRef<TScores>([])
 
   const activeFilter = shallowReactive<IUserCardActiveFilter>({
-    countries: '',
-    scores: '',
+    countrie: '',
+    score: '',
   })
 
-  const updateCountries = (countrie: TCountries[0]) => {
-    activeFilter.countries = countrie
+  /** Я не очень хочу использовать eval для запуска вычислений
+   * В идеале, подобные вычисления должны происходить на серверной стороне
+   * Но коли решили фронт, то вот на таких костылях
+   */
+  const filterValidators: TFilerValidators = {
+    countrie: (value: string) => activeFilter.countrie === value,
+    score: (value: string) => {
+      const cb = scoreTable[activeFilter.score]
+      return cb(value)
+    },
   }
 
-  const updateScores = (score: TScores[0]) => (activeFilter.scores = score)
+  const updateCountries = (countrie: string) =>
+    (activeFilter.countrie = countrie)
+
+  const updateScores = (score: string) => (activeFilter.score = score)
 
   /** Получить данные для фильтров асинхронно */
   const fetchScores = () => {
     try {
-      scores.value = ['> 20', '< 10']
+      scores.value = transformData(['> 20', '< 10'])
     } catch (e) {
       // Обработка ошибки/Вызов алёрта
     }
@@ -33,7 +46,7 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
 
   const fetchCountries = () => {
     try {
-      countries.value = ['russia', 'usa']
+      countries.value = transformData(['russia', 'usa'])
     } catch (e) {
       // Обработка ошибки/Вызов алёрта
     }
@@ -46,5 +59,6 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
     fetchScores,
     updateScores,
     updateCountries,
+    filterValidators,
   }
 })

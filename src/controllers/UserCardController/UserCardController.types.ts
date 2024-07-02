@@ -13,8 +13,8 @@ export interface IActionPropForSlot {
   countries: TCountries
   scores: TScores
   filter: IUserCardActiveFilter
-  updateCountries: (key: TCountries[0]) => void
-  updateScores: (key: TScores[0]) => void
+  updateCountries: (key: string) => void
+  updateScores: (key: string) => void
 }
 
 export interface IUserCardControllerSlots {

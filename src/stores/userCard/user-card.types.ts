@@ -11,8 +11,8 @@ export interface IUser {
   title: string
   avatar: string
   subtitle: string
-  countrie: TCountries[0]
-  score: TScores[0]
+  countrie: string
+  score: string
 }
 
 export interface IUserCard
@@ -20,10 +20,20 @@ export interface IUserCard
     Partial<IUser>,
     Partial<ITrashInfo> {}
 
-export type TCountries = string[]
-export type TScores = string[]
+export interface IFilterField {
+  value: string
+  id: string
+}
+export type TCountries = IFilterField[]
+export type TScores = IFilterField[]
 
 export interface IUserCardActiveFilter {
-  scores: TScores[0]
-  countries: TCountries[0]
+  score: string
+  countrie: string
+  [x: string]: string
+}
+
+export type TFilerValidators = {
+  score: (value: string) => boolean
+  countrie: (value: string) => boolean
 }
