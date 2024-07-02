@@ -18,7 +18,8 @@
       "@/*": ["./src/*"],
       "@type/*": ["./src/types/*"],
       "@component/*": ["./src/components/*"],
-      "@controller/*": ["./src/controllers/*"]
+      "@controller/*": ["./src/controllers/*"],
+      "@widget/*": ["./src/widget/*"]
     }
   }
 }
