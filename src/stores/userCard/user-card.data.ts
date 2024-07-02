@@ -11,6 +11,7 @@ export const data: IUserCard[] = [
       '<span class="text--primary">Ali Connors</span> &mdash; I\'ll be in your neighborhood doing errands this weekend. Do you want to hang out?',
     countrie: 'russia',
     score: '7',
+    address: 'Pushkina 7',
   },
   { divider: true, inset: true },
   {
@@ -29,6 +30,7 @@ export const data: IUserCard[] = [
       '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
     countrie: 'usa',
     score: '29',
+    address: 'Pushkina 7',
   },
   { divider: true, inset: true },
   {
