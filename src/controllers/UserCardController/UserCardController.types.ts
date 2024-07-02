@@ -17,8 +17,12 @@ export interface IActionPropForSlot {
   updateScores: (key: string) => void
 }
 
+export interface ICardPropsForSlot extends IDefaultPropForSlot {
+  isLoading: boolean
+}
+
 export interface IUserCardControllerSlots {
-  'card'(props: IDefaultPropForSlot): void
+  'card'(props: ICardPropsForSlot): void
   'actions'(props: IActionPropForSlot): void
   'img'(props: void): void
 }

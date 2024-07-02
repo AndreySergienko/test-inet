@@ -45,8 +45,8 @@
           ></v-select>
         </template>
 
-        <template #card="{ userCards }">
-          <UserCardWidget :userCards="userCards" />
+        <template #card="{ userCards, isLoading }">
+          <UserCardWidget :userCards="userCards" :is-loading="isLoading" />
         </template>
       </UserCardController>
     </v-main>

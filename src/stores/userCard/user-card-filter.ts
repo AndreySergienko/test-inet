@@ -26,7 +26,6 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
     countrie: (value: string) => activeFilter.countrie === value,
     score: (value: string) => {
       const cb = scoreTable[activeFilter.score]
-      console.log(cb, value)
       return cb(value)
     },
   }

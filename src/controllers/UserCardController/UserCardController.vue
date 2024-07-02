@@ -1,11 +1,11 @@
 <template>
-  <v-container>
+  <v-container height="100vh">
     <v-row align="center" justify="center" class="ma-4">
       <v-col cols="12">
         <slot name="img" />
       </v-col>
 
-      <v-col cols="12" md="4">
+      <v-col cols="12">
         <slot
           name="actions"
           :countries="useCardFilterStore.countries"
@@ -16,8 +16,12 @@
         />
       </v-col>
 
-      <v-col cols="12" md="4">
-        <slot name="card" :userCards="useCardStore.mutalableUserCards" />
+      <v-col>
+        <slot
+          name="card"
+          :userCards="useCardStore.mutalableUserCards"
+          :is-loading="useCardStore.isLoading"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -34,8 +38,8 @@
   const useCardStore = useUserCardStore()
   const useCardFilterStore = useUserCardFilterStore()
 
-  watch(useCardFilterStore.activeFilter, () => {
-    useCardStore.filteredUserCards(useCardFilterStore.activeFilter, useCardFilterStore.filterValidators)
+  watch(useCardFilterStore.activeFilter, async () => {
+    await useCardStore.filteredUserCards(useCardFilterStore.activeFilter, useCardFilterStore.filterValidators)
   })
 
   /** Имитируем получение данных с бэка

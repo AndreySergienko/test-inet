@@ -1,5 +1,7 @@
 import type { IUserCard } from './user-card.types'
 
+export const FILTER_AWAIT_TIME = 2000
+
 export const data: IUserCard[] = [
   { header: 'List' },
   {
