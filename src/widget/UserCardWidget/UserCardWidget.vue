@@ -3,11 +3,11 @@
   <v-card max-width="450" class="mx-auto">
     <v-list three-line>
       <template v-for="(item, index) in userCards">
-        <v-subheader
+        <v-list-subheader
           v-if="item.header"
           :key="item.header"
           v-text="item.header"
-        ></v-subheader>
+        ></v-list-subheader>
 
         <v-divider
           v-else-if="item.divider"
@@ -16,14 +16,12 @@
         ></v-divider>
 
         <v-list-item v-else :key="item.title">
-          <v-list-item-avatar>
+          <v-list-item>
             <v-img :src="item.avatar"></v-img>
-          </v-list-item-avatar>
+          </v-list-item>
 
-          <v-list-item-content>
-            <v-list-item-title v-html="item.title"></v-list-item-title>
-            <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-          </v-list-item-content>
+          <v-list-item-title v-html="item.title"></v-list-item-title>
+          <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
         </v-list-item>
       </template>
     </v-list>

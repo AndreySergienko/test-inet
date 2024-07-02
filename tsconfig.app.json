@@ -19,7 +19,8 @@
       "@type/*": ["./src/types/*"],
       "@component/*": ["./src/components/*"],
       "@controller/*": ["./src/controllers/*"],
-      "@widget/*": ["./src/widget/*"]
+      "@widget/*": ["./src/widget/*"],
+      "@userCardStore/*": ["./src/stores/userCard/*"]
     }
   }
 }

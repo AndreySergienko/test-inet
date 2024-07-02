@@ -2,12 +2,13 @@
   import AppFooter
   from '@component/AppFooter/AppFooter.vue'
   import type { TLocalAttrsFooter } from '@type/vuetify.types'
-  import { ref } from 'vue'
+  import { shallowReactive } from 'vue'
   import UserCardController from '@controller/UserCardController/UserCardController.vue'
   import UserCardWidget from '@widget/UserCardWidget/UserCardWidget.vue'
+  import logo from './assets/logo.svg'
 
   /** Настройки отображения футера */
-  const localAttrs = ref<TLocalAttrsFooter>({
+  const localAttrs = shallowReactive<TLocalAttrsFooter>({
         absolute: true,
         fixed: false
   })
@@ -18,20 +19,26 @@
     <v-main>
       <UserCardController>
         <template #img>
-          <v-img src="assets/logo.svg" class="my-3" contain height="200"
-        /></template>
+          <v-img :src="logo" class="my-3" contain height="200" />
+        </template>
 
-        <template #actions="{ userCards }">
+        <template
+          #actions="{ countries, scores, updateCountries, updateScores, filter }"
+        >
           <v-select
-            :items="userCards"
+            :items="countries"
             clearable
             label="Filter by country"
+            :model-value="filter.countries"
+            @update:model-value="updateCountries"
           ></v-select>
 
           <v-select
-            :items="userCards"
+            :items="scores"
             clearable
             label="Filter by score"
+            :model-value="filter.scores"
+            @update:model-value="updateScores"
           ></v-select>
         </template>
 

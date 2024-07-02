@@ -20,6 +20,7 @@ export default defineConfig({
       '@controller': createAliasPath('controllers'),
       '@component': createAliasPath('components'),
       '@widget': createAliasPath('widget'),
+      '@userCardStore': createAliasPath('stores/userCard'),
     },
   },
 })
