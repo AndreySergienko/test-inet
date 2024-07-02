@@ -39,7 +39,7 @@
   })
 
   /** Имитируем получение данных с бэка
-   * P.S возможно имеет смысл вынести в глобально
+   * P.S возможно имеет смысл вынести глобально
    */
   useCardFilterStore.fetchCountries()
   useCardFilterStore.fetchScores()

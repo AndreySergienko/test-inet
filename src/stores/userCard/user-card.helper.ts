@@ -8,5 +8,5 @@ export const transformData = (data: string[]): IFilterField[] =>
 
 export const scoreTable: Record<string, (value: string) => boolean> = {
   '1': (value: string) => +value > 20,
-  '2': (value: string) => +value < 20,
+  '2': (value: string) => +value < 10,
 }

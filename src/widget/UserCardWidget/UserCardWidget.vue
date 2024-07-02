@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <v-card max-width="450" class="mx-auto">
-    <v-list three-line>
+    <v-list v-if="userCards.length" three-line>
       <template v-for="(item, index) in userCards">
         <v-list-subheader
           v-if="item.header"
@@ -25,6 +25,8 @@
         </v-list-item>
       </template>
     </v-list>
+
+    <h3 class="text-center" v-else>User is not found</h3>
   </v-card>
 </template>
 

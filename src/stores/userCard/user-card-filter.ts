@@ -18,7 +18,7 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
     score: '',
   })
 
-  /** Я не очень хочу использовать eval для запуска вычислений
+  /** Я не хочу использовать eval для запуска вычислений > | <
    * В идеале, подобные вычисления должны происходить на серверной стороне
    * Но коли решили фронт, то вот на таких костылях
    */
@@ -26,6 +26,7 @@ export const useUserCardFilterStore = defineStore('userCardFilter', () => {
     countrie: (value: string) => activeFilter.countrie === value,
     score: (value: string) => {
       const cb = scoreTable[activeFilter.score]
+      console.log(cb, value)
       return cb(value)
     },
   }
