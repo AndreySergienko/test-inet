@@ -21,7 +21,8 @@
           <v-divider v-else-if="item.divider" :inset="item.inset" />
 
           <v-list-item v-else width="250">
-            <v-sheet v-if="keys[index]">
+            {{ index }}
+            <v-sheet v-if="keys[index] || typeof keys[index] === 'number'">
               <v-list-item-title v-if="item.address"
                 >Address: {{ item.address }}</v-list-item-title
               >
